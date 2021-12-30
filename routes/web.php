@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use \App\Http\Controllers\HomeController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,6 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [HomeController::class, 'index'])->name('home');
+
+
+Route::view('quienes_somos', 'quienes_somos.index')->name('quienes_somos');
+Route::view('contacto', 'contacto.index')->name('contacto');
+Route::view('politica-cookies', 'politica.cookies')->name('politica-cookies');
+Route::view('politica-privacidad', 'politica.privacidad')->name('politica-privacidad');
